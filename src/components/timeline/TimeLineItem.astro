@@ -1,0 +1,88 @@
+---
+interface Props {
+  date: string;
+  title: string;
+  description: string;
+  Icon?: any;
+}
+
+const {date, title, description, Icon} = Astro.props;
+---
+
+<li class="cdc-timeline__item">
+  <div class="cdc-timeline__line">
+    <span class="cdc-timeline__icon">
+      {Icon ? <Icon /> : null}
+    </span>
+  </div>
+  <div class="cdc-timeline__content">
+    <time>{date}</time>
+    <h3 class="vertical-timeline-element-title">{title}</h3>
+    <p>{description}</p>
+  </div>
+</li>
+
+<style lang="scss">
+  .cdc-timeline {
+    &__item {
+      display: flex;
+      flex-wrap: nowrap;
+      gap: 16px;
+    }
+    &__line {
+      position: relative;
+      &::before {
+        content: "";
+        display: block;
+        width: 4px;
+        height: 100%;
+        background: var(--color-white);
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+      }
+    }
+    &__content {
+      position: relative;
+      padding: 1em;
+      margin: 16px 0 32px;
+      background: rgba(2, 6, 23, 0.2);
+      border-radius: 0.25em;
+      box-shadow: 0 3px 0 var(--color-white);
+      &::before {
+        content: "";
+        position: absolute;
+        top: 2rem;
+        right: 100%;
+        border-bottom: 8px solid transparent;
+        border-right: 12px solid rgba(2, 6, 23, 0.2);
+        border-top: 8px solid transparent;
+      }
+    }
+    &__icon {
+      position: relative;
+      top: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 42px;
+      height: 42px;
+      background: var(--bg-color);
+      border: 4px solid currentColor;
+      border-radius: 50%;
+      z-index: 1;
+    }
+  }
+  time {
+    margin-bottom: 8px;
+    display: block;
+    font-size: var(--small-font-size);
+    color: var(--normal-gray);
+  }
+  h3 {
+    margin-bottom: 12px;
+    color: var(--color-yellow-400);
+  }
+</style>

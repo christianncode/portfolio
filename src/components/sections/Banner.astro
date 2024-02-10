@@ -1,0 +1,92 @@
+---
+import {CONTACT_LIST} from "@/configs/contactList";
+import Button from "../Button.astro";
+---
+
+<section class="banner">
+  <div class="container">
+    <img
+      class="banner__image"
+      src="https://media.licdn.com/dms/image/D5635AQGXW0U7XhrOLA/profile-framedphoto-shrink_100_100/0/1660002772504?e=1708142400&v=beta&t=zRechk9QeGA4BzNj9Hbc_ZXTfD8eEbMMrutUrJRDwwQ"
+      alt="Avatar"
+      width="150"
+      height="150"
+      decoding="sync"
+    />
+    <div class="banner__info">
+      <h1>Hola, soy Christian Díaz</h1>
+      <h2>
+        <span>+3 años de experiencia.</span>
+        <span>Ingeniero de sistemas y desarrollador web.</span>
+        <span>De Lima, Perú.</span>
+        <span>Especializado en crear aplicaciones de alta calidad.</span>
+      </h2>
+      <div class="contact-tools">
+        {
+          CONTACT_LIST?.map(({name, href, Icon}) => (
+            <Button name={name} href={href} Icon={Icon} />
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  .banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .container {
+      padding-top: 128px;
+      padding-bottom: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 42px;
+    }
+    &__info {
+      max-width: 522px;
+      h1 {
+        --h1-font-size: 30px;
+        font-size: var(--h1-font-size);
+        margin-bottom: 12px;
+      }
+      h2 {
+        --h2-font-size: 20px;
+        font-size: var(--h2-font-size);
+        span:nth-child(2) {
+          color: var(--color-yellow-300);
+        }
+      }
+    }
+    &__image {
+      height: revert-layer;
+      display: block;
+      border-radius: 50%;
+      box-shadow: var(--box-shadow);
+    }
+  }
+  .contact-tools {
+    margin-top: 22px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  @media screen and (min-width: 992px) {
+    .banner {
+      .container {
+        padding-top: 184px;
+      }
+      &__info {
+        h1 {
+          --h1-font-size: 48px;
+          margin-bottom: 24px;
+        }
+      }
+    }
+  }
+</style>

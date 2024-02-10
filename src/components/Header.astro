@@ -1,0 +1,60 @@
+---
+import Logo from "./logo/Logo.astro";
+import Navbar from "./navbar/Navbar.astro";
+---
+
+<header class="header">
+  <div class="container">
+    <Logo width={162} height={54} />
+    <Navbar />
+  </div>
+</header>
+
+<script>
+  const $header = document.querySelector(".header");
+  let ubicacionMain = window.pageYOffset;
+  const scrollMenu = () => {
+    let desplazamientoActual = window.pageYOffset;
+    if ($header) {
+      if (ubicacionMain >= desplazamientoActual || desplazamientoActual <= 0) {
+        $header.classList.remove("hidden");
+      } else {
+        $header.classList.add("hidden");
+      }
+    }
+    ubicacionMain = desplazamientoActual;
+  };
+
+  window.addEventListener("scroll", scrollMenu);
+</script>
+
+<style lang="scss">
+  @use "./../styles/mixins/mixins.scss" as *;
+
+  .header {
+    height: var(--header-height);
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  @include media(lg) {
+    .header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      backdrop-filter: saturate(160%) blur(6px);
+      background-color: rgba(var(--bg-color), 0.6);
+      box-shadow: var(--box-shadow);
+      z-index: var(--z-index-menu);
+      transform: translateY(0);
+      transition: transform var(--transition-time);
+      will-change: transform;
+      &.hidden {
+        transform: translateY(-100%);
+      }
+    }
+  }
+</style>

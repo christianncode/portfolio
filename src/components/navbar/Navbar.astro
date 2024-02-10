@@ -1,0 +1,49 @@
+---
+import {ROUTES_LIST} from "@/configs/routes";
+import NavbarItem from "./NavbarItem.astro";
+---
+
+<nav class="menu">
+  <ul class="menu__list">
+    {
+      ROUTES_LIST?.map(({name, href, Icon}) => (
+        <NavbarItem name={name} href={href} Icon={Icon} />
+      ))
+    }
+  </ul>
+</nav>
+
+<style lang="scss">
+  .menu {
+    display: grid;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: var(--header-height);
+    background-color: var(--bg-color);
+    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.8);
+    color: var(--color-white);
+    margin: auto 0;
+    z-index: var(--z-index-menu);
+    &__list {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  @media screen and (min-width: 992px) {
+    .menu {
+      position: initial;
+      width: auto;
+      background-color: initial;
+      box-shadow: none;
+      flex-grow: 1;
+      &__list {
+        display: flex;
+        justify-content: flex-end;
+        gap: 56px;
+      }
+    }
+  }
+</style>

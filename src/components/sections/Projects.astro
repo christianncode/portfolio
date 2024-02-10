@@ -1,0 +1,35 @@
+---
+import projects from "@/configs/projects";
+import ProjectItem from "../ProjectItem.astro";
+---
+
+<section id="projects" class="projects">
+  <div class="container">
+    <h2>Últimos proyectos</h2>
+    <div class="projects__list">
+      {
+        projects?.map(
+          ({title, description, imageUrl, technologies, webUrl}) => (
+            <ProjectItem
+              title={title}
+              description={description}
+              imageUrl={imageUrl}
+              technologies={technologies}
+              webUrl={webUrl}
+            />
+          )
+        )
+      }
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  .projects {
+    &__list {
+      display: flex;
+      flex-direction: column;
+      row-gap: 2.5rem;
+    }
+  }
+</style>

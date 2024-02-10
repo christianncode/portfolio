@@ -1,0 +1,95 @@
+---
+const {name, href, Icon} = Astro.props;
+---
+
+<li>
+  <a href={`#${href}`} class="menu__link">
+    <span class="menu__icon">
+      <Icon />
+    </span>
+    <span class="menu__text">{name}</span>
+  </a>
+</li>
+
+<script>
+  const sections = document.querySelectorAll("section");
+  const navItems = document.querySelectorAll("header nav a");
+
+  const callback = (entries: any[]) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        navItems.forEach(item => {
+          if (item.getAttribute("href")?.replace("#", "") == entry.target.id) {
+            item.classList.add("active");
+          } else {
+            item.classList.remove("active");
+          }
+        });
+      }
+    });
+  };
+
+  const observer = new IntersectionObserver(callback, {
+    root: null,
+    rootMargin: "60px 0px 0px 0px",
+    threshold: 0.45,
+  });
+
+  sections.forEach(section => {
+    observer.observe(section);
+  });
+
+  // Cleanup function
+  document.onvisibilitychange = () => {
+    if (document.visibilityState === "hidden") {
+      observer.disconnect();
+    }
+  };
+</script>
+
+<style lang="scss">
+  .menu {
+    &__link {
+      font-size: 12px;
+      line-height: initial;
+      color: currentColor;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      position: relative;
+      text-align: center;
+      height: 100%;
+      opacity: 0.8;
+      transition: opacity var(--transition-time) ease-in-out;
+      &.active {
+        opacity: 1;
+        border-bottom: 2px solid #fff;
+      }
+    }
+    &__icon {
+      left: 0;
+      top: 0;
+      svg {
+        width: 18px;
+        height: 18px;
+      }
+    }
+  }
+
+  @media screen and (min-width: 992px) {
+    .menu {
+      &__link {
+        &:hover,
+        &:focus-within {
+          opacity: 1;
+        }
+      }
+      &__icon {
+        display: none;
+      }
+      &__text {
+        font-size: var(--small-font-size);
+      }
+    }
+  }
+</style>

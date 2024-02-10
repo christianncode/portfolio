@@ -1,0 +1,64 @@
+<section id="about-me" class="about-me">
+  <div class="container">
+    <div class="box-image"></div>
+    <div class="about-me__info">
+      <h2>Sobre mí</h2>
+      <p>
+        Soy Ingeniero de sistemas con más de 3 años de experiencia en el
+        desarrollo web, siendo parte del frontend en diferentes proyectos. Fuí{
+          " "
+        }
+        <span>
+          parte del liderazgo de equipos de desarrollo en proyectos e-commerce
+          de gran envergadura.
+        </span>
+      </p>
+      <p>
+        Me considero una persona autodidacta, con muchas ganas de investigar y
+        aprender nuevas tecnologías. Uno de mis logros es ser un{" "}
+        <span>solucionador de problemas ágil y adaptable</span>, capaz de
+        trabajar en entornos de ritmo rápido.
+      </p>
+      <p>
+        Como desarrollador web, tengo una{" "}
+        <span> sólida comprensión de las buenas prácticas de clean code</span>{
+          " "
+        }
+        aplicadas a mis proyectos. Mi objetivo es brindar la mejor experiencia al
+        usuario, construyendo software de alta calidad.
+      </p>
+    </div>
+  </div>
+</section>
+
+<style lang="scss">
+  .about-me {
+    p {
+      margin-bottom: 12px;
+      span {
+        color: var(--color-yellow-300);
+      }
+    }
+  }
+  .box-image {
+    width: 150px;
+    height: 150px;
+    background-color: rgba(255, 255, 255, 0.015);
+    border-radius: var(--regular-border-radius);
+    margin: 0 auto;
+  }
+
+  @media screen and (min-width: 992px) {
+    .about-me {
+      .container {
+        display: grid;
+        grid-template-columns: 400px 440px;
+        justify-content: center;
+      }
+      .box-image {
+        width: 250px;
+        height: 250px;
+      }
+    }
+  }
+</style>

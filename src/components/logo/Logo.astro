@@ -1,0 +1,33 @@
+---
+interface Props {
+  width: number;
+  height: number;
+  loading?: string | any;
+}
+const {width, height, loading = "eager"} = Astro.props;
+---
+
+<a href="/" class="logo">
+  <img
+    src="/assets/images/logo.png"
+    alt="logo"
+    width={width}
+    height={height}
+    loading={loading}
+  />
+</a>
+
+<style lang="scss">
+  .logo {
+    margin: 2rem auto 0;
+  }
+
+  @media screen and (min-width: 992px) {
+    .logo {
+      margin: 0;
+      img {
+        width: 132px;
+      }
+    }
+  }
+</style>

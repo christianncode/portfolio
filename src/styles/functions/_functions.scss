@@ -1,0 +1,10 @@
+
+@function pathImage($image) {
+  $path: $pathImage + $image;
+  @return url($path);
+}
+
+@function em($px) {
+  $size: $px / 16px * 1em;
+  @return $size;
+}

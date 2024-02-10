@@ -1,0 +1,148 @@
+@import "fonts/fonts";
+@import "config/variables";
+@import "config/variables.css";
+@import "mixins/mixins";
+
+/***********************************************/
+/******************Mobile Firts*****************/
+/***********************************************/
+
+*, ::after, ::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font-os-regular, Arial, Helvetica, Sans-Serif;
+  font-size: $normal-font-size;
+  line-height: 25px;
+  color: $color-white;
+  min-height: calc(100vh - var(--header-height));
+  margin-bottom: var(--header-height);
+  background-image: radial-gradient(circle 500px at 50% 200px,rgba(120,119,198,.25),transparent);
+  background-attachment: fixed;
+  background-color: $bg-color;
+}
+
+main {
+  margin-bottom: 30px;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  font-family: $font-os-semibold;
+  text-decoration: none;
+  color: $color-white;
+}
+
+img {
+  max-width: 100%;
+  max-inline-size: 100%;
+  height: auto;
+  vertical-align: bottom;
+}
+
+svg {
+  width: 24px;
+  height: 24px;
+}
+
+h1, h2, h3, h4 {
+  font-family: $font-roboto;
+  color: $title-gray;
+}
+
+h1 {
+  line-height: 50px;
+}
+
+h2 {
+  font-size: $h2-font-size;
+  line-height: 32px;
+  color: $normal-gray;
+}
+
+h3 {
+  font-size: $h3-font-size;
+  line-height: 32px;
+}
+
+h4 {
+  $h4-font-size: 18px;
+  font-size: $h4-font-size;
+}
+
+h5 {
+  font-family: $font-os-semibold;
+  font-size: $normal-font-size;
+  color: $title-gray;
+}
+
+[class*="btn"] {
+  width: fit-content;
+  padding: 6px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border-radius: $normal-border-radius;
+  transition: background-color $transition-time ease-in-out, transform $transition-time ease-in-out;
+  &:hover, &:focus-within {
+    background-color: $color-primary-600;
+    transform: scale3d(1.04, 1.04, 1);
+  }
+}
+
+.btn-primary {
+  background-color: $color-primary-700;
+}
+
+%flex {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.container {
+  @extend %flex;
+  width: 100%;
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+section {
+  padding: 0 1rem;
+}
+
+section .container {
+  max-width: 768px;
+  padding: 62px 0 28px;
+  h2 {
+    margin-bottom: 16px;
+  }
+}
+
+/*Scroll*/
+::-webkit-scrollbar {
+  width: 12px;
+  background-color: transparent;
+  &-thumb {
+    background-color: $lighter-gray;
+    border-radius: 20px;
+    &:hover {
+      background-color: $light-gray;
+    }
+  }
+  &-track {
+    background-color: $border-gray;
+    border-radius: 20px;
+  }
+}
+
+
+

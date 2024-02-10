@@ -1,0 +1,70 @@
+---
+import {IconWeb} from "@/components/icons";
+
+type Technologies = {
+  name: string;
+  Icon: any;
+};
+
+interface Props {
+  title: string;
+  description: string;
+  technologies: Technologies[];
+  imageUrl: string;
+  webUrl: string;
+}
+
+const {title, description, technologies, imageUrl, webUrl} = Astro.props;
+---
+
+<article class="project">
+  <h3 class="project__title">{title}</h3>
+  <p class="project__description">{description}</p>
+  <div class="technologies">
+    {
+      technologies?.map(({name, Icon}) => (
+        <span class="technologies__item">
+          <Icon />
+          {name}
+        </span>
+      ))
+    }
+  </div>
+  <img
+    class="project__image"
+    src={imageUrl}
+    alt={title}
+    width="840"
+    height="553"
+    loading="lazy"
+  />
+  <a class="btn-primary" href={webUrl} target="_blank">
+    <IconWeb /> Ir al sitio web
+  </a>
+</article>
+
+<style lang="scss">
+  .project {
+    &__title {
+      margin-bottom: 8px;
+      color: var(--color-yellow-400);
+    }
+    .technologies {
+      margin: 1rem 0 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      &__item {
+        display: flex;
+        gap: 6px;
+        border-radius: 12px;
+      }
+    }
+    &__image {
+      border-radius: 12px;
+    }
+    .btn-primary {
+      margin-top: 1rem;
+    }
+  }
+</style>

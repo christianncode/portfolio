@@ -1,0 +1,30 @@
+---
+import {EXPERIENCES} from "@/configs/experiences";
+import TimeLineItem from "../timeline/TimeLineItem.astro";
+import {IconBriefcase} from "@/components/icons";
+---
+
+<section id="experience" class="experience">
+  {
+    /* <p>
+    En cuanto al contenido, cada experiencia debe decir al reclutador "qué
+    hiciste, cómo lo hiciste y qué has conseguido". Debe ser la puerta que
+    indique que estás listo para un siguiente reto💪
+  </p> */
+  }
+  <div class="container">
+    <h2>Experiencia laboral</h2>
+    <ol class="cdc-timeline">
+      {
+        EXPERIENCES?.map(({date, title, description}) => (
+          <TimeLineItem
+            date={date}
+            title={title}
+            description={description}
+            Icon={IconBriefcase}
+          />
+        ))
+      }
+    </ol>
+  </div>
+</section>
