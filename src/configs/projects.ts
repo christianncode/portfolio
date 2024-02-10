@@ -28,7 +28,7 @@ const projects = [
         Icon: IconBootstrap,
       },
     ],
-    imageUrl: "/assets/images/projects/entel2.png",
+    imageUrl: "/assets/images/projects/screens/entel.webp",
     webUrl: "https://miportal.entel.pe",
   },
   {
@@ -62,7 +62,7 @@ const projects = [
         Icon: IconRedux,
       },
     ],
-    imageUrl: "/assets/images/projects/gef2.png",
+    imageUrl: "/assets/images/projects/screens/gef.webp",
     webUrl: "https://www.gef.co",
   },
 ];
