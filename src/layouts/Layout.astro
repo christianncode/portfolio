@@ -10,8 +10,9 @@ interface Props {
 const {title} = Astro.props;
 const description =
   "Desarrollador web con experiencia en grandes proyectos de e-commerce. Especializado en crear aplicaciones de alta calidad y brindar una buena experiencia al usuario";
+const domain = "https://christan-portafolio.netlify.app";
 const imageSeo = {
-  src: `${Astro.request.url}assets/images/metadata.png`,
+  src: `${domain}/assets/images/metadata.png`,
   width: 1200,
   height: 628,
   alt: title,
@@ -44,7 +45,7 @@ const imageSeo = {
           title: title,
           type: "website",
           image: imageSeo.src,
-          url: `${Astro.request.url}`,
+          url: domain,
         },
         optional: {
           description: description,
