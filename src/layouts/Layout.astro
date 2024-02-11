@@ -1,4 +1,5 @@
 ---
+import {SEO} from "astro-seo";
 import "../styles/App.scss";
 import Header from "@/components/Header.astro";
 import Footer from "@/components/Footer.astro";
@@ -7,15 +8,22 @@ interface Props {
 }
 
 const {title} = Astro.props;
+const description =
+  "Desarrollador web con experiencia en grandes proyectos de e-commerce. Especializado en crear aplicaciones de alta calidad y brindar una buena experiencia al usuario";
+const imageSeo = {
+  src: `${Astro.request.url}assets/images/metadata.png`,
+  width: 1200,
+  height: 628,
+  alt: title,
+  type: "image/png",
+};
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="Astro description" />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link
       rel="preload"
       as="image"
@@ -28,8 +36,45 @@ const {title} = Astro.props;
       imagesrcset="https://media.licdn.com/dms/image/D5635AQGXW0U7XhrOLA/profile-framedphoto-shrink_100_100/0/1660002772504?e=1708142400&v=beta&t=zRechk9QeGA4BzNj9Hbc_ZXTfD8eEbMMrutUrJRDwwQ"
       fetchpriority="high"
     />
+    <SEO
+      title={title}
+      description={description}
+      openGraph={{
+        basic: {
+          title: title,
+          type: "website",
+          image: imageSeo.src,
+          url: `${Astro.request.url}`,
+        },
+        optional: {
+          description: description,
+        },
+        image: {
+          width: imageSeo.width,
+          height: imageSeo.height,
+          alt: imageSeo.alt,
+          type: imageSeo.type,
+        },
+      }}
+      extend={{
+        link: [{rel: "icon", type: "image/svg+xml", href: "/favicon.svg"}],
+        meta: [
+          {name: "twitter:card", content: "summary_large_image"},
+          {name: "twitter:title", content: title},
+          {name: "twitter:description", content: description},
+          {
+            name: "twitter:image",
+            content: imageSeo.src,
+          },
+          {name: "twitter:image:width", content: `${imageSeo.width}`},
+          {name: "twitter:image:height", content: `${imageSeo.height}`},
+          {name: "twitter:image:alt", content: imageSeo.alt},
+          {name: "twitter:image:type", content: imageSeo.type},
+          {name: "theme-color", content: "#020617"},
+        ],
+      }}
+    />
     <meta name="generator" content={Astro.generator} />
-    <title>{title}</title>
   </head>
   <body>
     <Header />
