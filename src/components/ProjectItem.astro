@@ -1,4 +1,5 @@
 ---
+import Image from "@/components/common/Image.astro";
 import {IconWeb} from "@/components/icons";
 
 type Technologies = {
@@ -30,8 +31,8 @@ const {title, description, technologies, imageUrl, webUrl} = Astro.props;
       ))
     }
   </div>
-  <img
-    class="project__image"
+  <Image
+    className="project__image"
     src={imageUrl}
     alt={title}
     width="840"

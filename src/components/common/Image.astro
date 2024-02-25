@@ -1,0 +1,43 @@
+---
+import {imageSizes} from "@/constants/images";
+
+interface Props {
+  className?: string;
+  src: string;
+  alt: string;
+  width: string;
+  height: string;
+  loading?: any;
+  decoding?: any;
+  fetchpriority?: any;
+}
+
+const {className, src, alt, width, height, ...rest} = Astro.props;
+const DEFAULT_SIZE = "small";
+
+const getSrc = ({sizeName}: {sizeName: string}) => {
+  const srcPath = src.split("/");
+  const baseName = srcPath.at(-1)?.split(".")[0] + "-" + sizeName + ".webp";
+  return srcPath.slice(0, -1).join("/") + "/screens/" + baseName;
+};
+
+const getSrcSet = () => {
+  let srcSet = "";
+  for (const [sizeName, sizeValue] of Object.entries(imageSizes)) {
+    srcSet += getSrc({sizeName}) + " " + `${sizeValue}w,`;
+  }
+
+  return srcSet.replace(/,\s*$/, "");
+};
+---
+
+<img
+  class={className}
+  src={getSrc({sizeName: DEFAULT_SIZE})}
+  alt={alt}
+  srcset={getSrcSet()}
+  sizes="(min-width: 860px) 768px, 92.59vw"
+  width={width}
+  height={height}
+  {...rest}
+/>

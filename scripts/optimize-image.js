@@ -1,6 +1,7 @@
 import fs from "node:fs";
-import sharp from "sharp";
 import {join, basename, extname} from "node:path";
+import sharp from "sharp";
+import {imageSizes} from "../src/constants/images.js";
 
 const directory = "public/assets/images/projects";
 const files = await fs.promises.readdir(directory);
@@ -9,21 +10,27 @@ const images = files.filter(
   archivo => extname(archivo).toLowerCase() === ".png"
 );
 
-for await (const file of images) {
+const convert = (sizeName, file) => {
   const output = join(
     directory,
     "screens",
-    basename(file, extname(file)) + ".webp"
+    basename(file, extname(file)) + `-${sizeName}.webp`
   );
 
-  const convert = sharp(join(directory, file))
+  return sharp(join(directory, file))
     .resize({
-      width: 840,
+      width: imageSizes[sizeName],
     })
     .webp({
       lossless: false,
       quality: 70,
-    });
+    })
+    .toFile(output);
+};
 
-  await convert.toFile(output);
+for await (const file of images) {
+  await convert("small", file);
+  await convert("medium", file);
+  await convert("large", file);
+  await convert("xlarge", file);
 }
