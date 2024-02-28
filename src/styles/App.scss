@@ -13,11 +13,14 @@
   box-sizing: border-box;
 }
 
-body {
-  font-family: $font-os-regular, Arial, Helvetica, Sans-Serif;
+html {
+  font-family: $font-regular, ui-sans-serif, sans-serif, system-ui, arial, helvetica;
   font-size: $normal-font-size;
   line-height: 25px;
   color: $color-white;
+}
+
+body {
   min-height: calc(100vh - var(--header-height));
   margin-bottom: var(--header-height);
   background-image: radial-gradient(circle 500px at 50% 200px,rgba(120,119,198,.25),transparent);
@@ -34,7 +37,8 @@ li {
 }
 
 a {
-  font-family: $font-os-semibold;
+  font-family: $font-regular;
+  font-weight: 600;
   text-decoration: none;
   color: $color-white;
 }
@@ -51,8 +55,9 @@ svg {
   height: 24px;
 }
 
-h1, h2, h3, h4 {
-  font-family: $font-roboto;
+h1, h2, h3, h4, h5 {
+  font-family: $font-regular;
+  font-weight: 700;
   color: $title-gray;
 }
 
@@ -77,9 +82,7 @@ h4 {
 }
 
 h5 {
-  font-family: $font-os-semibold;
   font-size: $normal-font-size;
-  color: $title-gray;
 }
 
 [class*="btn"] {
