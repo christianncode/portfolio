@@ -1,6 +1,13 @@
 <section id="about-me" class="about-me">
   <div class="container">
-    <div class="box-image"></div>
+    <img
+      src="/assets/images/me.webp"
+      alt="Sobre mí"
+      width="200"
+      height="200"
+      loading="lazy"
+      decoding="auto"
+    />
     <div class="about-me__info">
       <h2>Sobre mí</h2>
       <p>
@@ -33,31 +40,27 @@
 
 <style lang="scss">
   .about-me {
+    .container {
+      justify-content: center;
+      gap: 24px;
+    }
     p {
       margin-bottom: 12px;
       span {
         color: var(--color-yellow-300);
       }
     }
-  }
-  .box-image {
-    width: 150px;
-    height: 150px;
-    background-color: rgba(255, 255, 255, 0.015);
-    border-radius: var(--regular-border-radius);
-    margin: 0 auto;
+    img {
+      border-radius: var(--normal-border-radius);
+    }
   }
 
   @media screen and (min-width: 992px) {
     .about-me {
       .container {
         display: grid;
-        grid-template-columns: 400px 440px;
-        justify-content: center;
-      }
-      .box-image {
-        width: 250px;
-        height: 250px;
+        grid-template-columns: 200px 1fr;
+        gap: 32px;
       }
     }
   }
