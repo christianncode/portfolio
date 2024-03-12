@@ -23,7 +23,11 @@ html {
 body {
   min-height: calc(100vh - var(--header-height));
   margin-bottom: var(--header-height);
-  background-image: radial-gradient(circle 500px at 50% 200px,rgba(120,119,198,.25),transparent);
+  background-image: 
+    url("/assets/images/hexagon-grid.svg"), 
+    radial-gradient(circle 250px at 50% 300px, rgba(120, 119, 198, 0.25), transparent);
+  background-position: 50%;
+  background-repeat: no-repeat;
   background-attachment: fixed;
   background-color: $bg-color;
 }
@@ -144,6 +148,14 @@ section .container {
   &-track {
     background-color: $border-gray;
     border-radius: 20px;
+  }
+}
+
+@include media(md) {
+  body {
+    background-image: 
+    url("/assets/images/hexagon-grid.svg"), 
+    radial-gradient(circle 500px at 50% 250px, rgba(120, 119, 198, 0.20), transparent);
   }
 }
 
