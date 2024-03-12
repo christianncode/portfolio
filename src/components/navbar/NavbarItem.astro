@@ -31,7 +31,7 @@ const {name, href, Icon} = Astro.props;
 
   const observer = new IntersectionObserver(callback, {
     root: null,
-    rootMargin: "60px 0px 0px 0px",
+    rootMargin: "30px 0px 0px 0px",
     threshold: 0.45,
   });
 
@@ -39,7 +39,6 @@ const {name, href, Icon} = Astro.props;
     observer.observe(section);
   });
 
-  // Cleanup function
   document.onvisibilitychange = () => {
     if (document.visibilityState === "hidden") {
       observer.disconnect();
