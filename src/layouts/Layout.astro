@@ -10,7 +10,7 @@ interface Props {
 const {title} = Astro.props;
 const description =
   "Desarrollador web con experiencia en grandes proyectos de e-commerce. Especializado en crear aplicaciones de alta calidad y brindar una buena experiencia al usuario";
-const domain = "https://christandc.netlify.app";
+const domain = "https://christiandiaz.netlify.app";
 const imageSeo = {
   src: `${domain}/assets/images/metadata.png`,
   width: 1200,
@@ -34,6 +34,7 @@ const imageSeo = {
     <SEO
       title={title}
       description={description}
+      canonical={domain}
       openGraph={{
         basic: {
           title: title,
