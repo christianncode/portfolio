@@ -40,7 +40,12 @@ const {title, description, technologies, imageUrl, webUrl} = Astro.props;
     loading="lazy"
     decoding="auto"
   />
-  <a class="btn-primary" href={webUrl} target="_blank">
+  <a
+    class="btn-primary"
+    href={webUrl}
+    target="_blank"
+    rel="noopener noreferrer"
+  >
     <IconWeb /> Ir al sitio web
   </a>
 </article>
