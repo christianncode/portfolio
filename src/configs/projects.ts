@@ -1,5 +1,6 @@
 import {
   IconBootstrap,
+  IconFigma,
   IconMaterialUI,
   IconReact,
   IconReactRouter,
@@ -13,7 +14,7 @@ const projects = [
     id: 1,
     title: "Entel Perú: Siente el verdadero Power",
     description:
-      "Plataforma e-commerce, de venta de equipos móviles, accesorios, tarjeta sim y planes. Creada con React, Sass y Bootstrap",
+      "Plataforma e-commerce, de venta de equipos móviles, accesorios, tarjeta sim y planes. Creada con React, Sass, Bootstrap y Figma. El backend fue construido con el lenguaje Java.",
     technologies: [
       {
         name: "React",
@@ -27,6 +28,10 @@ const projects = [
         name: "Bootstrap",
         Icon: IconBootstrap,
       },
+      {
+        name: "Figma",
+        Icon: IconFigma,
+      },
     ],
     imageUrl: "/assets/images/projects/entel.png",
     webUrl: "https://miportal.entel.pe",
@@ -35,7 +40,7 @@ const projects = [
     id: 2,
     title: "GEF® Colombia - Tienda de Ropa y Accesorios Online",
     description:
-      "Plataforma e-commerce, dedicada a la venta de accesorios y prendas de vestir. Creada con React, TypeScript, Sass, Material UI, React Router y Redux",
+      "Plataforma e-commerce, dedicada a la venta de accesorios y prendas de vestir. Creada con React, TypeScript, Sass, Material UI, React Router y Redux. El backend fue construido con el lenguaje Java.",
     technologies: [
       {
         name: "React",
