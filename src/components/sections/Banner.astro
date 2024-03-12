@@ -78,11 +78,16 @@ import Button from "../Button.astro";
     gap: 12px;
   }
 
-  @media screen and (min-width: 992px) {
+  @media screen and (min-width: 768px) {
     .banner {
       .container {
         padding-top: 184px;
       }
+    }
+  }
+
+  @media screen and (min-width: 992px) {
+    .banner {
       &__info {
         h1 {
           --h1-font-size: 42px;
