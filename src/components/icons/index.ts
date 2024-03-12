@@ -13,3 +13,4 @@ export {default as IconReactRouter} from "./IconReactRouter.astro";
 export {default as IconRedux} from "./IconRedux.astro";
 export {default as IconTypeScript} from "./IconTypeScript.astro";
 export {default as IconBriefcase} from "./IconBriefcase.astro";
+export {default as IconFigma} from "./IconFigma.astro";
