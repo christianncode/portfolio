@@ -31,19 +31,21 @@ const {name, href, Icon} = Astro.props;
 
   const observer = new IntersectionObserver(callback, {
     root: null,
-    rootMargin: "30px 0px 0px 0px",
-    threshold: 0.45,
+    rootMargin: "0px",
+    threshold: 0.35,
   });
 
   sections.forEach(section => {
+    console.log(section);
     observer.observe(section);
   });
 
-  document.onvisibilitychange = () => {
-    if (document.visibilityState === "hidden") {
-      observer.disconnect();
-    }
-  };
+  // document.onvisibilitychange = () => {
+  //   if (document.visibilityState === "hidden") {
+  //     console.log("disconnect");
+  //     observer.disconnect();
+  //   }
+  // };
 </script>
 
 <style lang="scss">
