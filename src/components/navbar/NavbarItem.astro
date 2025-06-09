@@ -52,7 +52,7 @@ const {name, href, Icon} = Astro.props;
   @use "./../../styles/mixins/mixins.scss" as *;
   .menu {
     &__link {
-      font-size: 12px;
+      font-size: var(--12px);
       line-height: initial;
       color: currentColor;
       display: flex;

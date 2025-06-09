@@ -46,16 +46,14 @@ import Button from "../Button.astro";
       gap: 42px;
     }
     &__info {
-      max-width: 522px;
+      max-width: 32.625rem;
       h1 {
-        --h1-font-size: 30px;
-        font-size: var(--h1-font-size);
+        font-size: var(--30px);
         margin-bottom: 12px;
         text-wrap: pretty;
       }
       h2 {
-        --h2-font-size: 20px;
-        font-size: var(--h2-font-size);
+        font-size: var(--20px);
         span:nth-child(2) {
           color: var(--color-yellow-300);
         }
@@ -90,7 +88,7 @@ import Button from "../Button.astro";
     .banner {
       &__info {
         h1 {
-          --h1-font-size: 42px;
+          font-size: var(--42px);
           margin-bottom: 18px;
         }
       }
