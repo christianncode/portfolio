@@ -12,16 +12,16 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@astrojs/check": "^0.4.1",
-    "astro": "^4.3.2",
-    "astro-seo": "0.8.0",
+    "@astrojs/check": "^0.9.4",
+    "astro": "^5.9.2",
+    "astro-seo": "0.8.4",
     "sass": "^1.70.0",
-    "typescript": "^5.3.3"
+    "typescript": "^5.8.3"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
-    "husky": "^8.0.0",
-    "sharp": "^0.33.2"
+    "husky": "^9.1.7",
+    "sharp": "^0.34.2"
   }
 }
