@@ -1,0 +1,14 @@
+name: Test
+on:
+  workflow_dispatch:
+    inputs:
+      test:
+        description: "Run test"
+        required: true
+        default: "true"
+jobs:
+  run-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Greeting
+        run: echo "Hello, world!"
